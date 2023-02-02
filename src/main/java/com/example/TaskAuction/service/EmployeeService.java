@@ -9,7 +9,8 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 import java.util.Optional;
 
-@Component
+
+//Component не нужен
 public interface EmployeeService {
     MessageResponse createEmployee(EmployeeRequest employeeRequest);
     Optional<Employee> updateEmployee(Integer employeeId, EmployeeRequest employeeRequest);

@@ -6,16 +6,20 @@ import com.example.TaskAuction.data.payloads.request.EmployeeRequest;
 import com.example.TaskAuction.data.payloads.response.MessageResponse;
 import com.example.TaskAuction.data.repository.EmployeeRepository;
 import com.example.TaskAuction.exceptions.ResourceNotFoundException;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
+
+    // Почему нет private???
     @Autowired
-    EmployeeRepository employeeRepository;
+    private EmployeeRepository employeeRepository;
 
     @Override
     public MessageResponse createEmployee(EmployeeRequest employeeRequest) {
@@ -28,7 +32,6 @@ public class EmployeeServiceImpl implements EmployeeService {
         newEmployee.setDepartment(employeeRequest.getDepartment());
         employeeRepository.save(newEmployee);
         return new MessageResponse("New Employee created successfully");
-
     }
 
     @Override
