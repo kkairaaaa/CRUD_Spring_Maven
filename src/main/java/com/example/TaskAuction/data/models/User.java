@@ -16,31 +16,19 @@ import java.util.Objects;
 @NoArgsConstructor
 @Getter
 @Setter
+@Table(name = "users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    private String firstName;
-    private String lastname;
-    private String phoneNumber;
+    @Column(nullable = false, unique = true, length = 45)
     private String email;
 
+    @Column(nullable = false, length = 64)
     private String password;
+    @Column(name = "first_name", nullable = false, length = 20)
+    private String firstName;
 
-    @Override
-    public String toString() {
-        return "Employee{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastname='" + lastname + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                ", email='" + email + '\'' +
-
-                '}';
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, firstName, lastname, phoneNumber, email);
-    }
+    @Column(name = "last_name", nullable = false, length = 20)
+    private String lastName;
 }
