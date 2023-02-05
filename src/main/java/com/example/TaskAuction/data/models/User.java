@@ -16,7 +16,7 @@ import java.util.Objects;
 @NoArgsConstructor
 @Getter
 @Setter
-public class Employee {
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
@@ -24,9 +24,8 @@ public class Employee {
     private String lastname;
     private String phoneNumber;
     private String email;
-    private double salary;
-    @Enumerated(EnumType.STRING)
-    private Department department;
+
+    private String password;
 
     @Override
     public String toString() {
@@ -36,13 +35,12 @@ public class Employee {
                 ", lastname='" + lastname + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", email='" + email + '\'' +
-                ", salary=" + salary +
-                ", department=" + department +
+
                 '}';
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, firstName, lastname, phoneNumber, email, salary, department);
+        return Objects.hash(id, firstName, lastname, phoneNumber, email);
     }
 }
