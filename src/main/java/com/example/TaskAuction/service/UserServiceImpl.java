@@ -24,8 +24,6 @@ public class UserServiceImpl implements UserService {
     public MessageResponse createEmployee(UserRequest userRequest) {
         User newUser = new User();
         newUser.setFirstName(userRequest.getFirstName());
-        newUser.setLastname(userRequest.getLastname());
-        newUser.setPhoneNumber(userRequest.getPhoneNumber());
         newUser.setEmail(userRequest.getEmail());
         newUser.setPassword(userRequest.getPassword());
         userRepository.save(newUser);
@@ -40,8 +38,7 @@ public class UserServiceImpl implements UserService {
         }
         else
             employee.get().setFirstName(userRequest.getFirstName());
-        employee.get().setLastname(userRequest.getLastname());
-        employee.get().setPhoneNumber(userRequest.getPhoneNumber());
+
         employee.get().setEmail(userRequest.getEmail());
         employee.get().setPassword(userRequest.getPassword());
         userRepository.save(employee.get());
